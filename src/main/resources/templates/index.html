@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<a href="/proyectos">Projectos</a>
+<a href="/proyecto/nuevo">Nuevo</a>
+
+<h1>Projectos</h1>
+<ul>
+    <li th:each="proyecto : ${proyectos}">
+        <a th:href="@{/proyecto/{id}(id=${proyecto.id})}" th:text="${proyecto.nombre}"></a>
+    </li>
+</ul>
+</body>
+</html>

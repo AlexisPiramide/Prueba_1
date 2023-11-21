@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/proyectos">Projectos</a>
+<a href="/proyecto/nuevo">Nuevo</a>
+
+
+<h1 th:text="${nombreproyecto}"></h1>
+
+<form th:action="@{/proyecto/borrar}" th:method="post">
+    <input type="hidden" name="idProyecto" th:value="${id}"/>
+    <button type="submit">Borrar</button>
+</form>
+
+
+<table>
+    <thead>
+    <tr>
+        <th>Codigo</th>
+        <th>Nombre</th>
+        <th>Especialidad</th>
+        <th>Especialista</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="tarea : ${tareas}">
+        <td th:text="${tarea.codigo}"></td>
+        <td th:text="${tarea.nombre}"></td>
+        <td th:text="${tarea.especialidad}"></td>
+        <td th:text="${tarea.id_especialista}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
